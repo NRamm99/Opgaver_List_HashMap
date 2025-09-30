@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +12,7 @@ public class Main {
                 1... Opgave 1: Grundlæggende brug af ArrayList
                 2... Opgave 2: Iteration og sortering
                 3... Opgave 3: Filtrering af ArrayList
+                4... Opgave 4: Grundlæggende brug af HashMap
                 
                 0... Luk program
                 """);
@@ -25,6 +27,9 @@ public class Main {
             case 3:
                 opgave3();
                 break;
+            case 4:
+                opgave4();
+                break;
             case 0:
                 break;
         }
@@ -32,6 +37,7 @@ public class Main {
 
 
     // Opgave 1: Grundlæggende brug af ArrayList
+
     public static void opgave1() {
         ArrayList<String> fruits = new ArrayList<>();
         opgave1_promptMenu(fruits);
@@ -112,6 +118,7 @@ public class Main {
 
 
     // Opgave 2: Iteration og sortering
+
     private static void opgave2() {
         ArrayList<Integer> numbers = new ArrayList<>();
         opgave2_addNumbers(numbers);
@@ -149,8 +156,8 @@ public class Main {
         }
     }
 
-    // Opgave 3: Filtrering af ArrayList
 
+    // Opgave 3: Filtrering af ArrayList
     private static void opgave3() {
         ArrayList<String> cities = new ArrayList<>();
         opgave3_cityAdder(cities);
@@ -174,6 +181,41 @@ public class Main {
             System.out.print("#" + (n + 1) + ": ");
             cities.add(input.nextLine());
         }
+    }
+
+    // Opgave 4: Grundlæggende brug af HashMap
+
+    private static void opgave4() {
+        HashMap<String, Integer> people = new HashMap<>();
+        opgave4_addPeople(people);
+        opgave4_printPeople(people);
+    }
+
+    private static void opgave4_printPeople(HashMap<String, Integer> people) {
+        clearConsole();
+        for (HashMap.Entry<String, Integer> entry : people.entrySet()) {
+            String name = entry.getKey();
+            Integer age = entry.getValue();
+            System.out.println(name + " → " + age);
+        }
+    }
+
+    private static void opgave4_addPeople(HashMap<String, Integer> people) {
+        String name;
+        int age;
+
+        printToConsole("How many people do you wish to add?");
+        int addAmount = input.nextInt();
+        input.nextLine();
+        for (int n = 0; n < addAmount; n++) {
+            System.out.print("#" + (n + 1) + " navn: ");
+            name = input.nextLine();
+            System.out.print("#" + (n + 1) + " alder: ");
+            age = input.nextInt();
+            input.nextLine();
+            people.put(name, age);
+        }
+
     }
 
     // VÆRKTØJER BRUGT GENERELT
