@@ -1,15 +1,36 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        opgave2();
+        printToConsole("""
+                Vælg hvilken opgave du ønsker at køre:
+                1... Opgave 1: Grundlæggende brug af ArrayList
+                2... Opgave 2: Iteration og sortering
+                
+                0... Luk program
+                """);
+        int userInput = input.nextInt();
+        switch (userInput) {
+            case 1:
+                opgave1();
+                break;
+            case 2:
+                opgave2();
+                break;
+            case 3:
+                opgave3();
+                break;
+            case 0:
+                break;
+        }
     }
 
-    // Opgave 1: Grundlæggende brug af ArrayList
 
+    // Opgave 1: Grundlæggende brug af ArrayList
     public static void opgave1() {
         ArrayList<String> fruits = new ArrayList<>();
         opgave1_promptMenu(fruits);
@@ -89,10 +110,46 @@ public class Main {
     }
 
 
-    // Iteration og sortering
+    // Opgave 2: Iteration og sortering
     private static void opgave2() {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        opgave2_addNumbers(numbers);
+        opgave2_printNumbers(numbers);
+        input.nextLine();
+        waitForUser();
+        opgave2_sortNumbers(numbers);
+        opgave2_printNumbers(numbers);
+        input.nextLine();
+        waitForUser();
+
     }
 
+    private static void opgave2_sortNumbers(ArrayList<Integer> numbers) {
+        Collections.sort(numbers);
+    }
+
+    private static void opgave2_printNumbers(ArrayList<Integer> numbers) {
+        printToConsole("List of numbers:");
+        for (int n = 0; n < numbers.size(); n++) {
+            System.out.println("#" + (n + 1) + ": " + numbers.get(n));
+        }
+        System.out.println("----------------");
+
+    }
+
+    private static void opgave2_addNumbers(ArrayList<Integer> numbers) {
+        printToConsole("How many numbers do you wish to add?");
+        int addAmount = input.nextInt();
+        for (int n = 0; n < addAmount; n++) {
+            System.out.print("#" + (n + 1) + ": ");
+            numbers.add(input.nextInt());
+        }
+    }
+
+    // Opgave 3: Filtrering af ArrayList
+    
+    private static void opgave3() {
+    }
 
     // VÆRKTØJER BRUGT GENERELT
     public static void clearConsole() {
