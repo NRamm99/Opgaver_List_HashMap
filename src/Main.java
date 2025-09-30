@@ -5,10 +5,11 @@ public class Main {
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        opgave1();
+        opgave2();
     }
 
-    // OPGAVE 1
+    // Opgave 1: Grundlæggende brug af ArrayList
+
     public static void opgave1() {
         ArrayList<String> fruits = new ArrayList<>();
         opgave1_promptMenu(fruits);
@@ -86,6 +87,12 @@ public class Main {
             fruits.add(input.nextLine());
         }
     }
+
+
+    // Iteration og sortering
+    private static void opgave2() {
+    }
+
 
     // VÆRKTØJER BRUGT GENERELT
     public static void clearConsole() {
