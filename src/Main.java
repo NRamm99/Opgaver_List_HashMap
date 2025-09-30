@@ -158,11 +158,18 @@ public class Main {
     }
 
     private static void opgave3_printStartsWithA(ArrayList<String> cities) {
+        printToConsole("Cities that start with an A:");
+        for (String city : cities) {
+            if (city.toLowerCase().startsWith("A".toLowerCase())) {
+                System.out.println(city);
+            }
+        }
     }
 
     private static void opgave3_cityAdder(ArrayList<String> cities) {
         printToConsole("How many cities do you wish to add?");
         int addAmount = input.nextInt();
+        input.nextLine();
         for (int n = 0; n < addAmount; n++) {
             System.out.print("#" + (n + 1) + ": ");
             cities.add(input.nextLine());
