@@ -10,6 +10,7 @@ public class Main {
                 Vælg hvilken opgave du ønsker at køre:
                 1... Opgave 1: Grundlæggende brug af ArrayList
                 2... Opgave 2: Iteration og sortering
+                3... Opgave 3: Filtrering af ArrayList
                 
                 0... Luk program
                 """);
@@ -130,8 +131,10 @@ public class Main {
 
     private static void opgave2_printNumbers(ArrayList<Integer> numbers) {
         printToConsole("List of numbers:");
-        for (int n = 0; n < numbers.size(); n++) {
-            System.out.println("#" + (n + 1) + ": " + numbers.get(n));
+        int counter = 1; // tæller starter ved 1
+        for (int num : numbers) {
+            System.out.println("#" + counter + ": " + num);
+            counter++;
         }
         System.out.println("----------------");
 
@@ -147,8 +150,23 @@ public class Main {
     }
 
     // Opgave 3: Filtrering af ArrayList
-    
+
     private static void opgave3() {
+        ArrayList<String> cities = new ArrayList<>();
+        opgave3_cityAdder(cities);
+        opgave3_printStartsWithA(cities);
+    }
+
+    private static void opgave3_printStartsWithA(ArrayList<String> cities) {
+    }
+
+    private static void opgave3_cityAdder(ArrayList<String> cities) {
+        printToConsole("How many cities do you wish to add?");
+        int addAmount = input.nextInt();
+        for (int n = 0; n < addAmount; n++) {
+            System.out.print("#" + (n + 1) + ": ");
+            cities.add(input.nextLine());
+        }
     }
 
     // VÆRKTØJER BRUGT GENERELT
